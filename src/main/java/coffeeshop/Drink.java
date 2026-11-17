@@ -16,14 +16,19 @@ package coffeeshop;
 
 import java.security.MessageDigest;
 
-public class Drink {
+public class Drink extends MenuItem {
     final public double MEDIUMUPCHARGE = 0.50;
     final public double LARGEUPCHARGE = 1.00;
     private char size;
 
-    public Drink(double MEDIUMUPCHARGE, double LARGEUPCHARG, char size){
-
+    public Drink(String name, double price, char size){
+        super(name, price);
     }
+    @Override
+    public double getPrice(){
+        return super.getPrice();
+    }
+
     public char getSize(char size){
         this.size = size;
         return size;
@@ -32,7 +37,7 @@ public class Drink {
         return true;
     }
     public String toString(){
-        return null;
+        return name + " - $" + String.format("%.2f", getPrice());
     }
 
     // YOUR CODE
