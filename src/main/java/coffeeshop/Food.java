@@ -20,10 +20,11 @@ public class Food extends MenuItem {
 
     public Food(String name, double price, boolean heated){
         super(name, price);
+        this.heated = heated;
 
     }
     public boolean isHeated(){
-        return true;
+        return heated;
     }
     @Override
     public double getPrice(){

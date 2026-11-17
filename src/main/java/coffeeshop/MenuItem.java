@@ -32,6 +32,6 @@ public class MenuItem {
         return name + " - $" + String.format("%.2f", getPrice());
     }
 
-    // YOUR CODE
+
 
 }

@@ -23,13 +23,14 @@ public class Drink extends MenuItem {
 
     public Drink(String name, double price, char size){
         super(name, price);
+        this.size = size;
     }
     @Override
     public double getPrice(){
         return super.getPrice();
     }
 
-    public char getSize(char size){
+    public char getSize(){
         this.size = size;
         return size;
     }
@@ -37,7 +38,7 @@ public class Drink extends MenuItem {
         return true;
     }
     public String toString(){
-        return name + " - $" + String.format("%.2f", getPrice());
+        return null;
     }
 
     // YOUR CODE

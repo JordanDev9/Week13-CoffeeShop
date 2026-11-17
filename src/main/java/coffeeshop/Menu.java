@@ -18,7 +18,10 @@ public class Menu {
 
 
 
+
     public void Menu(){
+        Items.add(new Drink("Coffee", 2.00, 'S'));
+        Items.add(new Food("Bagel", 2.75, false));
 
     }
     public int size(){
@@ -33,6 +36,5 @@ public class Menu {
 
 
 
-    // YOUR CODE
 
 }
