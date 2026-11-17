@@ -29,7 +29,7 @@ public class MenuItem {
         return true;
     }
     public String toString(){
-        return null;
+        return name + " - $" + String.format("%.2f", getPrice());
     }
 
     // YOUR CODE
