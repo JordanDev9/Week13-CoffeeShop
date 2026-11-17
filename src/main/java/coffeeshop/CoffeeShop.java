@@ -1,6 +1,5 @@
 package coffeeshop;
-
-import java.util.ArrayList;
+import java.util.Scanner;
 
 // STEP 5 · CoffeeShop: the shop, its menu, and every order it finished today.
 //
@@ -14,7 +13,43 @@ import java.util.ArrayList;
 // Commit message:  step 5: CoffeeShop
 
 public class CoffeeShop {
+    private String name;
+    private Menu menu;
+    private double totalsales;
+    private CoffeeShop shop;
+    private Scanner input;
 
-    // YOUR CODE
+   public CoffeeShop(String name){
+
+   }
+   public String getName(){
+       this.name = name;
+       return name;
+   }
+   public Menu getMenu(){
+       this.menu = menu;
+       return menu;
+   }
+   public double checkout(Order order, int tipPercent){
+       return 0;
+   }
+   public int getCompletedOrders(){
+       return 0;
+   }
+   public double getTotalSales() {
+       return 0;
+   }
+   public int getItemsSold(){
+       return 0;
+   }
+   public String salesReport(){
+        return null;
+    }
+
+
+
+
+
+
 
 }

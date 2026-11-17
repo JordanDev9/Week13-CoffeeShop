@@ -14,7 +14,26 @@ package coffeeshop;
 // Then drag check/coffeeshop/DrinkTest.java into src/test/java/coffeeshop/ and run it.
 // Commit message (after Food is green too):  step 2: Drink and Food
 
+import java.security.MessageDigest;
+
 public class Drink {
+    final public double MEDIUMUPCHARGE = 0.50;
+    final public double LARGEUPCHARGE = 1.00;
+    private char size;
+
+    public Drink(double MEDIUMUPCHARGE, double LARGEUPCHARG, char size){
+
+    }
+    public char getSize(char size){
+        this.size = size;
+        return size;
+    }
+    public boolean isDrink(){
+        return true;
+    }
+    public String toString(){
+        return null;
+    }
 
     // YOUR CODE
 

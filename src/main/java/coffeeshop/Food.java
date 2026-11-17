@@ -14,6 +14,21 @@ package coffeeshop;
 // Commit message (after Drink is green too):  step 2: Drink and Food
 
 public class Food {
+    final double HEATFEE = .50;
+    private boolean heated;
+
+    public Food(String name, double price, boolean heated){
+
+    }
+    public boolean isHeated(){
+        return true;
+    }
+    public double getPrice(){
+        return 0;
+    }
+    public String toString(){
+        return null;
+    }
 
     // YOUR CODE
 

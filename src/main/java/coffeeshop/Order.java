@@ -17,6 +17,47 @@ import java.util.ArrayList;
 // Commit message:  step 4: Order
 
 public class Order {
+    ArrayList<String> completedorders = new ArrayList<String>();
+    private Order order;
+    final public String COUPONCODE = "HORNET 10";
+    final public int COUPONPERCENT = 10;
+    private int nextOrderNumber = 1;
+    ArrayList<MenuItem> Items = new ArrayList<MenuItem>();
+    private int discountPercentage;
+
+    public void Order(){
+
+    }
+    public int getOrderNumber(){
+        return 0;
+    }
+    public void addItem(MenuItem item){
+
+    }
+    public boolean removeItem(int number){
+        return true;
+    }
+    public int getItemCount(){
+        return 0;
+    }
+    public boolean isOpen(){
+        return true;
+    }
+    public double getSubTotal(){
+        return 0;
+    }
+    public boolean applyCoupon(String code){
+        return true;
+    }
+    public double getDiscount(){
+        return 0;
+    }
+    public double getTotal(int tipPercentage){
+        return 0;
+    }
+    public String toString() {
+        return null;
+    }
 
     // YOUR CODE
 
