@@ -1,4 +1,5 @@
 package coffeeshop;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 // STEP 5 · CoffeeShop: the shop, its menu, and every order it finished today.
@@ -15,41 +16,66 @@ import java.util.Scanner;
 public class CoffeeShop {
     private String name;
     private Menu menu;
-    private double totalsales;
-    private CoffeeShop shop;
+    private double totalSales;
+    private CoffeeShop Shop;
     private Scanner input;
+    private ArrayList<Order> completedOrders;
 
-   public CoffeeShop(String name){
-
-   }
-   public String getName(){
-       this.name = name;
-       return name;
-   }
-   public Menu getMenu(){
-       this.menu = menu;
-       return menu;
-   }
-   public double checkout(Order order, int tipPercent){
-       return 0;
-   }
-   public int getCompletedOrders(){
-       return 0;
-   }
-   public double getTotalSales() {
-       return 0;
-   }
-   public int getItemsSold(){
-       return 0;
-   }
-   public String salesReport(){
-        return null;
+    public CoffeeShop(String name) {
+        this.name = name;
+        menu = new Menu();
+        completedOrders = new ArrayList<Order>();
+        totalSales = 0;
     }
 
+    public String getName() {
+        this.name = name;
+        return name;
+    }
 
+    public Menu getMenu() {
+        menu = new Menu();
+        return menu;
+    }
 
+    public double checkout(Order order, int tipPercent) {
+        if (order.isEmpty()) {
+            return 0;
+        }
 
+        double total = order.getTotal(tipPercent);
 
+        completedOrders.add(order);
+        totalSales += total;
 
+        return total;
+    }
 
+    public int getOrdersCompleted() {
+        return completedOrders.size();
+    }
+
+    public double getTotalSales() {
+        return totalSales;
+    }
+
+    public int getItemsSold() {
+        int itemsSold = 0;
+
+        for (Order order : completedOrders) {
+            itemsSold += order.getItemCount();
+        }
+
+        return itemsSold;
+    }
+
+    public String salesReport() {
+
+        return getName() + " - today's sales\n"
+                + "  Orders: " + getOrdersCompleted() + "\n"
+                + "  Items sold: " + getItemsSold() + "\n"
+                + "  Total: $"
+                + String.format("%.2f", getTotalSales());
+    }
 }
+

@@ -21,26 +21,28 @@ public class Drink extends MenuItem {
     final public double LARGEUPCHARGE = 1.00;
     private char size;
 
-    public Drink(String name, double price, char size){
+    public Drink(String name, double price, char size) {
         super(name, price);
         this.size = size;
     }
+
     @Override
-    public double getPrice(){
+    public double getPrice() {
         return super.getPrice();
     }
 
-    public char getSize(){
+    public char getSize() {
         this.size = size;
         return size;
     }
-    public boolean isDrink(){
+    @Override
+    public boolean isDrink() {
         return true;
     }
-    public String toString(){
-        return null;
+
+    @Override
+    public String toString() {
+        return getName() + " (" + getSize() + ") - $" + String.format("%.2f", getPrice());
+
     }
-
-    // YOUR CODE
-
 }

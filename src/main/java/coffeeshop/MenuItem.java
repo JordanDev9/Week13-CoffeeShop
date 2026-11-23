@@ -15,6 +15,8 @@ public class MenuItem {
     private double price;
 
     public MenuItem(String name, Double price){
+        this.name = name;
+        this.price = price;
 
     }
     public String getName(){
@@ -26,7 +28,7 @@ public class MenuItem {
         return price;
     }
     public boolean isDrink(){
-        return true;
+        return false;
     }
     public String toString(){
         return name + " - $" + String.format("%.2f", getPrice());

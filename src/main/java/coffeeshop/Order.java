@@ -18,47 +18,84 @@ import java.util.ArrayList;
 
 public class Order {
     ArrayList<String> completedorders = new ArrayList<String>();
-    private Order order;
     final public String COUPONCODE = "HORNET 10";
     final public int COUPONPERCENT = 10;
     private int nextOrderNumber = 1;
+    private int orderNumber;
     ArrayList<MenuItem> Items = new ArrayList<MenuItem>();
     private int discountPercentage;
 
-    public void Order(){
+    public Order(){
+        orderNumber = nextOrderNumber;
+        nextOrderNumber++;
 
     }
     public int getOrderNumber(){
-        return 0;
+        return orderNumber;
     }
     public void addItem(MenuItem item){
-
+        Items.add(item);
     }
     public boolean removeItem(int number){
+        if (number < 1 || number > Items.size()) {
+            return false;
+        }
+
+        Items.remove(number - 1);
         return true;
     }
-    public int getItemCount(){
-        return 0;
+    public int getItemCount() {
+        return Items.size();
     }
-    public boolean isOpen(){
-        return true;
+    public boolean isEmpty() {
+        return Items.size() == 0;
     }
-    public double getSubTotal(){
-        return 0;
+    public double getSubtotal() {
+        double subtotal = 0;
+
+        for (MenuItem item : Items) {
+            subtotal += item.getPrice();
+        }
+
+        return subtotal;
     }
     public boolean applyCoupon(String code){
-        return true;
+        if (code.trim().equalsIgnoreCase(COUPONCODE)) {
+            discountPercentage = COUPONPERCENT;
+            return true;
+        }
+
+        return false;
     }
     public double getDiscount(){
-        return 0;
+        return getSubtotal() * discountPercentage / 100.0;
     }
     public double getTotal(int tipPercentage){
-        return 0;
+        if (tipPercentage < 0) {
+            tipPercentage = 0;
+        }
+
+        double afterDiscount =
+                getSubtotal() - getDiscount();
+
+        double tip =
+                afterDiscount * tipPercentage / 100.0;
+
+        return afterDiscount + tip;
     }
+    @Override
     public String toString() {
-        return null;
+        String orderText = "Order #" + getOrderNumber() + "\n";
+        for (int i = 0; i < Items.size(); i++) {
+            orderText += "  " + (i + 1) + ". " + Items.get(i) + "\n";
+        }
+        orderText += "  Subtotal: $"
+                + String.format("%.2f", getSubtotal());
+        if (getDiscount() > 0) {
+            orderText += "\n  Discount: -$"
+                    + String.format("%.2f", getDiscount());
+        }
+        return orderText;
     }
-
-    // YOUR CODE
-
 }
+    // YOUR CODE

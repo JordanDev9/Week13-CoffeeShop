@@ -30,8 +30,13 @@ public class Food extends MenuItem {
     public double getPrice(){
         return super.getPrice();
     }
-    public String toString(){
-        return null;
+    @Override
+    public String toString() {
+
+        if (isHeated()) {
+            return getName() + ", heated - $" + String.format("%.2f", getPrice());
+        }
+        return super.toString();
     }
 
     // YOUR CODE
