@@ -9,28 +9,46 @@ import java.util.ArrayList;
 
 public class ListChallenges {
 
-    // Give back a NEW list with every item except the sold-out one.
-    // Capital and small letters count the same. Do not change the list you were given.
-    //   removeSoldOut(["Latte", "Bagel", "latte"], "LATTE") -> ["Bagel"]
-    //   removeSoldOut(["Tea"], "Coffee")                    -> ["Tea"]
     public static ArrayList<String> removeSoldOut(ArrayList<String> items, String soldOut) {
-        return new ArrayList<>();   // YOUR CODE
+
+        ArrayList<String> result = new ArrayList<>();
+
+        for (String item : items) {
+            if (!item.equalsIgnoreCase(soldOut)) {
+                result.add(item);
+            }
+        }
+
+        return result;
     }
 
-    // The longest name in the list. If two tie, give back the first one.
-    // If the list is empty, give back "" (an empty String).
-    //   longestName(["Mo", "Jordan", "Skye"]) -> "Jordan"
-    //   longestName(["Ana", "Bob"])           -> "Ana"
     public static String longestName(ArrayList<String> names) {
-        return "";   // YOUR CODE
+
+        if (names.size() == 0) {
+            return "";
+        }
+
+        String longest = names.get(0);
+
+        for (int i = 1; i < names.size(); i++) {
+            if (names.get(i).length() > longest.length()) {
+                longest = names.get(i);
+            }
+        }
+
+        return longest;
     }
 
-    // Did any name order twice? Give back true if the same String (exactly, with equals)
-    // is in the list more than once.
-    //   hasRepeat(["Mo", "Ana", "Mo"]) -> true
-    //   hasRepeat(["Mo", "Ana", "mo"]) -> false   (capital M is different)
-    //   hasRepeat([])                  -> false
     public static boolean hasRepeat(ArrayList<String> names) {
-        return false;   // YOUR CODE
+
+        for (int i = 0; i < names.size(); i++) {
+            for (int j = i + 1; j < names.size(); j++) {
+                if (names.get(i).equals(names.get(j))) {
+                    return true;
+                }
+            }
+        }
+
+        return false;
     }
 }
